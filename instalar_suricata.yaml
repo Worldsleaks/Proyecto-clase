@@ -1,0 +1,9 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+   - name: INSTALAR SURICATA
+     apt: name=suricata update_cache=yes state=latest
+  handlers:
+   - name: REINICIAR APACHE2
+     service: name=apache2 state=restarted 
